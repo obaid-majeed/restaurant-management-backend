@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: restaurant-management-backend
+    runtime: docker
+    plan: free
+    envVars:
+      - key: DATABASE_URL
+        value: jdbc:mysql://your-database-host:3306/restaurant_db
+      - key: DATABASE_USER
+        value: root
+      - key: DATABASE_PASSWORD
+        value: your_mysql_password
+    buildCommand: "./mvnw clean package -DskipTests"
+    startCommand: "java -jar target/demo-0.0.1-SNAPSHOT.jar"
+
+
+
